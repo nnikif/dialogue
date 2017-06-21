@@ -13,6 +13,7 @@ class AppChatForTwo extends Component {
         }
         this.handleR=this.handleR.bind(this);
         this.handleL=this.handleL.bind(this);
+        this.removeLast=this.removeLast.bind(this);
     }
     handleR(message) {
         this.handleM(message, false)
@@ -27,19 +28,24 @@ class AppChatForTwo extends Component {
             'text':message};
         this.setState({message_list: this.state.message_list.concat(msg)})
 }}
+    removeLast(){
+        var arrayS = this.state.message_list;
+        arrayS.pop();
+        this.setState({message_list: arrayS});
+    }
         render() {
             return (
                 <div className="App">
                     <Conversation messages={this.state.message_list}/>
-                    <div >
+
                         <Submit
                             onSubmitted={this.handleR}
                         />
-                    </div>
-                    <div>
+
                         <Submit
                             onSubmitted={this.handleL}/>
-                    </div>
+                        <button onClick={this.removeLast}>Remove Last</button>
+
                 </div>
             );
 

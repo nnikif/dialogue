@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Conversation from "./Conversation"
+// import Conversation2 from "./Dragging"
 
 var my_data = [
     {'isLeft':false,
@@ -34,10 +35,6 @@ class App extends Component {
     );
   }
 }
-
-
-
-
 
 
 
