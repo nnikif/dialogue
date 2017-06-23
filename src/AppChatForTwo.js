@@ -4,6 +4,7 @@
 import React, { Component } from 'react';
 import Conversation from "./Conversation"
 
+const root_of_d = '/d/'
 
 class AppChatForTwo extends Component {
     constructor(props) {
@@ -14,6 +15,7 @@ class AppChatForTwo extends Component {
         this.handleR=this.handleR.bind(this);
         this.handleL=this.handleL.bind(this);
         this.removeLast=this.removeLast.bind(this);
+        this.saveD=this.saveD.bind(this);
     }
     handleR(message) {
         this.handleM(message, false)
@@ -28,6 +30,22 @@ class AppChatForTwo extends Component {
             'text':message};
         this.setState({message_list: this.state.message_list.concat(msg)})
 }}
+    async saveD(){
+        var my_data_send=JSON.stringify(this.state.message_list)
+        fetch('/dialogues/', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                title: 'my_data',
+                text: my_data_send
+
+            })
+        }).then(response => response.json())
+            .then(responseJ =>{window.open(root_of_d+String(responseJ.id),'_self')})
+    }
     removeLast(){
         var arrayS = this.state.message_list;
         arrayS.pop();
@@ -44,8 +62,10 @@ class AppChatForTwo extends Component {
 
                         <Submit
                             onSubmitted={this.handleL}/>
-                        <button onClick={this.removeLast}>Remove Last</button>
-
+                        <button onClick={this.removeLast}
+                        className="submit">Remove Last</button>
+                        <button onClick={this.saveD}
+                                className="submit">Save the Dialogue</button>
                 </div>
             );
 
