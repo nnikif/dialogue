@@ -6,8 +6,8 @@ import './index.css';
 import AppChatForTwo from "./AppChatForTwo"
 // import Card from "Dragging"
 
-// ReactDOM.render(<App />, document.getElementById('view'));
+ReactDOM.render(<App />, document.getElementById('view'));
 // registerServiceWorker();
 
-ReactDOM.render(<AppChatForTwo/>, document.getElementById('submit'));
+// ReactDOM.render(<AppChatForTwo/>, document.getElementById('submit'));
 // registerServiceWorker();

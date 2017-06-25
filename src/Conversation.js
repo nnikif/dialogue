@@ -12,14 +12,8 @@ const Conversation = ({messages}) => (
 )
 
 const Reply = ({isLeft, text}) =>
-    isLeft ?
-        <div className="outer">
-            <div className="lbubble">{text}</div>
-        </div>
-        :
-        <div className="outer">
-            <div className="rbubble">{text}</div>
-        </div>
+
+    <div className={isLeft ? "lbubble" : "rbubble"}>{text}</div>
 
 
 

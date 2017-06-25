@@ -11,7 +11,7 @@ var my_data = [
         'text':"Лучше некуда!"}
 
 ];
-const base="/dialogues/";
+const base="http://127.0.0.1:8000/dialogues/";
 
 class App extends Component {
   constructor (props) {

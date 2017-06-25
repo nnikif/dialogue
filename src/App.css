@@ -1,8 +1,10 @@
 .App {
   text-align: center;
-  width: 400px;
+  width: 450px;
   padding: 20px;
+  overflow: hidden;
   /*background-color: bisque;*/
+  /*float: right;*/
 
 }
 
@@ -16,12 +18,17 @@
   height: 150px;
   padding: 20px;
   color: white;
+  clear: none;
 }
 
 .App-intro {
   font-size: large;
 }
 
+#view {
+  width: 50%;
+  display:block;
+}
 
 
 /*p {*/
@@ -39,7 +46,9 @@ button {
 .lbubble,
 .rbubble,
 button {
+  box-sizing: border-box;
   position: relative;
+  max-width: 80%;
   padding: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
@@ -47,14 +56,19 @@ button {
   box-shadow: 2px 2px 7px 0px #616161;
   display: inline-block;
   margin-bottom: 8px;
+
 }
 .lbubble {
   background: lightblue;
+  /*text-align: left;*/
   float:left;
+  clear:right;
 }
 .rbubble {
   background: lightgreen;
   float: right;/*add float right*/
+  clear: left;
+  /*text-align: right;*/
 }
 .lbubble:after {
   content: "";
@@ -77,6 +91,10 @@ button {
   border-color: transparent lightgreen;
   width: 0;
   z-index: 1;
+}
+.remainder {
+  /*color: lightgreen;*/
+  text-align: right;
 }
 
 @keyframes App-logo-spin {
